@@ -59,7 +59,7 @@ function Home() {
             </span>
             </OverlayTrigger>
             
-            <h2><Link to={{pathname: 'https://github.com/VivisMarrie/'}} target="_blank"><FaCode color='#5c32a8' /></Link></h2>
+            <h2><Link to={{pathname: 'https://github.com/VivisMarrie/select-emote'}} target="_blank"><FaCode color='#5c32a8' /></Link></h2>
         </div>
 
         <Container >
