@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import Tooltip from 'react-bootstrap/Tooltip';
+import './styles.css'
 
 import { FaTh, FaBars, FaSignLanguage, FaGitkraken, FaLinkedinIn, FaInstagram, FaGithub, FaCode } from "react-icons/fa";
 import { GiWhiteCat } from "react-icons/gi";
@@ -25,8 +26,7 @@ interface Emote {
 function Home() {
     const [jsnResponse, setjsnResponse] = useState<Emote[]>([]);
     const [search, setSearch] = useState<string>('');
-    const [indexOver, setIndexOver] = useState<number | undefined>();    
-    const [showGrid, setShowGrid] = useState(true);
+    const [showGrid, setShowGrid] = useState(false);
 
       useEffect(() => {
         axios
@@ -108,14 +108,10 @@ function Home() {
                     {
                         jsnResponse.map((emote, index) => (
                             <ListGroup.Item key={index}  className="user-select-none"
-                            onDoubleClick={() => {navigator.clipboard.writeText(emote.symbol)}}
-                            onMouseOver={() => {setIndexOver(index)}}
-                            onMouseLeave={() => {setIndexOver(undefined)}}>
-                                {emote.symbol} {emote.title}                               
-                                
-                                <span id={`span-${index}`} className="float-right user-select-none" 
-                                   style={ indexOver === index ? {visibility: 'visible' } : {visibility: 'hidden' }} 
-                                ><small className="text-muted">Double Click to copy emoji</small></span>  
+                            onDoubleClick={() => {navigator.clipboard.writeText(emote.symbol)}}>
+                                {emote.symbol} {emote.title}                              
+                                <div id={`span-${index}`} className="float-right user-select-none message-copy"> 
+                                <small className="text-muted">Double Click to copy emoji</small></div>  
                             
                             </ListGroup.Item>
                         ))                

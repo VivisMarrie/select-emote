@@ -1,0 +1,7 @@
+.list-group-item > .message-copy {
+    visibility: hidden;
+}
+
+.list-group-item:hover .message-copy{
+    visibility: visible;
+} 
